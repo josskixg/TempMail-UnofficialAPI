@@ -1,0 +1,17 @@
+{
+    "name": "tempmail/unofficial-api",
+    "description": "PHP wrapper for 4 temporary email services using native cURL",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "TempMail\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
