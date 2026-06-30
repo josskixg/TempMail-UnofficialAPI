@@ -1,0 +1,26 @@
+{
+  "name": "tempmail-wrapper",
+  "version": "1.0.0",
+  "description": "Unified wrapper for 4 temporary email services",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node --test tests/e2e.test.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "tempmail",
+    "temporary-email",
+    "disposable-email",
+    "mailtm",
+    "guerrillamail",
+    "yopmail",
+    "dropmail"
+  ],
+  "license": "MIT"
+}
