@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TempMail API Wrappers — Create & Manage Disposable Mailboxes Programmatically</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Sleek, unofficial TempMail API wrapper & SDK for Go, Python, JavaScript, Rust, Java, PHP, and C#. Programmatically create and check disposable email addresses easily.">
+  <meta name="keywords" content="tempmail, disposable email, temp email api, mail.tm api, guerrillamail client, yopmail scraper, dropmail graphql, 1secemail wrapper, sdk, multi-language wrapper">
+  <meta name="author" content="TempMail Unofficial API Wrapper">
+  
+  <!-- OpenGraph Previews -->
+  <meta property="og:title" content="TempMail API Wrappers — Multi-Language SDKs">
+  <meta property="og:description" content="Clean, robust wrappers for Go, Python, Node.js, Rust, Java, PHP, and C# to automate temporary inbox generation with zero API keys.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../banner.svg">
+  
+  <!-- Style Imports -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Ambient Glows -->
+  <div class="glow-container">
+    <div class="glow-blob glow-blob-1"></div>
+    <div class="glow-blob glow-blob-2"></div>
+    <div class="glow-blob glow-blob-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo" id="logo-link">
+        tempmail-unofficial api
+      </a>
+      <ul class="nav-links">
+        <li><a href="#playground">Code Examples</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#demo">Live Demo</a></li>
+        <li><a href="#providers">Providers</a></li>
+        <li><a href="https://github.com/josskixg/TempMail-UnofficialAPI" class="btn-github" target="_blank" rel="noopener">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          GitHub Repo
+        </a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="badge">🔥 Now Supporting 5 Providers</div>
+      <h1>Sleek &amp; Lightweight Wrappers for <span class="gradient-text"><br>Disposable Mail Services</span></h1>
+      <p>Programmatically spin up temporary inboxes, receive confirmation codes, and scrape email payloads. Built natively in 7 languages with zero external API key requirements.</p>
+      
+      <div class="hero-cta">
+        <a href="#playground" class="btn btn-primary">Browse SDK Code</a>
+        <a href="#demo" class="btn btn-secondary">Run Live Simulator</a>
+      </div>
+
+      <div style="margin-top: 5rem;">
+        <div class="hero-banner">
+          <!-- Root animated glossy banner embed -->
+          <img src="../banner.svg" alt="TempMail API Wrapper Banner - Animated Glossy Theme">
+        </div>
+      </div>
+    </section>
+
+    <!-- Playground Panel -->
+    <section id="playground" class="glass-panel">
+      <h2 class="section-title">⚡ Interactive <span>Playground</span></h2>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px;">
+        Choose your programming language below to view copyable boilerplate implementations showing how to generate an email address and wait for inbox delivery.
+      </p>
+      
+      <div class="playground-container">
+        <!-- Sidebar selector -->
+        <div class="lang-tabs">
+          <button class="lang-tab active" data-lang="go">
+            Go Modules <span class="lang-indicator">go</span>
+          </button>
+          <button class="lang-tab" data-lang="python">
+            Python <span class="lang-indicator">py</span>
+          </button>
+          <button class="lang-tab" data-lang="javascript">
+            JavaScript <span class="lang-indicator">js</span>
+          </button>
+          <button class="lang-tab" data-lang="java">
+            Java <span class="lang-indicator">java</span>
+          </button>
+          <button class="lang-tab" data-lang="php">
+            PHP <span class="lang-indicator">php</span>
+          </button>
+          <button class="lang-tab" data-lang="rust">
+            Rust <span class="lang-indicator">rs</span>
+          </button>
+          <button class="lang-tab" data-lang="csharp">
+            C# .NET <span class="lang-indicator">cs</span>
+          </button>
+        </div>
+
+        <!-- Code viewer -->
+        <div class="code-box">
+          <div class="code-header">
+            <span class="code-title" id="code-filename">main.go</span>
+            <button class="btn-copy" id="btn-copy-code">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="copy-text">Copy Code</span>
+            </button>
+          </div>
+          <pre class="code-pre"><code id="code-display"></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" style="margin-bottom: 6rem;">
+      <h2 class="section-title" style="justify-content: center; margin-bottom: 3rem;">Designed For <span>Developer Velocity</span></h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Zero API Keys Needed</h3>
+          <p>Interact directly with public temporary email APIs without registering developers tokens or maintaining subscription wallets.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌀</div>
+          <h3>Anti-429 Proxy Rotation</h3>
+          <p>Configurable HTTP Proxy collections and User-Agent generators to bypass rate-limiting blocks during intensive E2E tests.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3>Automatic Captcha Bypassing</h3>
+          <p>Integrated PaddleOCR image solvers for captcha-heavy services like Dropmail.me, complete with custom solver hooks.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧩</div>
+          <h3>Standard Library First</h3>
+          <p>Wrappers prioritize zero external runtime packages (e.g. pure stdlib in Go/C#/.NET, standard cURL in PHP, native fetch in Node).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulator Panel -->
+    <section id="demo" class="glass-panel">
+      <h2 class="section-title">📡 Live <span>Execution Simulator</span></h2>
+      <p style="color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 700px;">
+        Click through the lifecycle stages on the left to see the console output stream simulated live as if executing through the SDK wrapper.
+      </p>
+      
+      <div class="sim-container">
+        <!-- Steps selection -->
+        <div class="sim-controls">
+          <div class="sim-steps">
+            <div class="sim-step active" data-step="1">
+              <div class="sim-step-num">1</div>
+              <div class="sim-step-info">
+                <h4>Initialize Provider</h4>
+                <p>Construct Client &amp; load proxy options.</p>
+              </div>
+            </div>
+            <div class="sim-step" data-step="2">
+              <div class="sim-step-num">2</div>
+              <div class="sim-step-info">
+                <h4>Generate Email Address</h4>
+                <p>Register disposable randomized inbox address.</p>
+              </div>
+            </div>
+            <div class="sim-step" data-step="3">
+              <div class="sim-step-num">3</div>
+              <div class="sim-step-info">
+                <h4>Wait For Message</h4>
+                <p>Poll SMTP servers for incoming message payload.</p>
+              </div>
+            </div>
+            <div class="sim-step" data-step="4">
+              <div class="sim-step-num">4</div>
+              <div class="sim-step-info">
+                <h4>Read Mail Details</h4>
+                <p>Decrypt and extract plain text or verify tokens.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal Console -->
+        <div class="sim-console">
+          <div class="sim-console-header">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+            <span class="sim-console-title">developer@tempmail-client:~</span>
+          </div>
+          <div class="sim-console-body" id="sim-console-text"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Providers Table -->
+    <section id="providers" class="glass-panel">
+      <h2 class="section-title">🌐 Supported <span>TempMail Services</span></h2>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px;">
+        Comparison matrix of the 5 built-in providers included in the client SDK suites:
+      </p>
+      
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Website</th>
+              <th>Protocol Type</th>
+              <th>Authentication</th>
+              <th>Difficulty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mail.tm</strong></td>
+              <td>mail.tm</td>
+              <td>REST + JSON</td>
+              <td>JWT Bearer Token</td>
+              <td><span class="cell-badge cell-badge-easy">✅ Easy</span></td>
+            </tr>
+            <tr>
+              <td><strong>GuerrillaMail</strong></td>
+              <td>guerrillamail.com</td>
+              <td>REST</td>
+              <td>Session Cookies</td>
+              <td><span class="cell-badge cell-badge-medium">⚡ Medium</span></td>
+            </tr>
+            <tr>
+              <td><strong>YOPmail</strong></td>
+              <td>yopmail.com</td>
+              <td>HTML Scraper</td>
+              <td>None</td>
+              <td><span class="cell-badge cell-badge-medium">⚡ Medium</span></td>
+            </tr>
+            <tr>
+              <td><strong>Dropmail.me</strong></td>
+              <td>dropmail.me</td>
+              <td>GraphQL</td>
+              <td>Token (Auto-fetched)</td>
+              <td><span class="cell-badge cell-badge-easy">✅ Easy</span></td>
+            </tr>
+            <tr>
+              <td><strong>1secemail</strong></td>
+              <td>1secemail.com</td>
+              <td>REST</td>
+              <td>None</td>
+              <td><span class="cell-badge cell-badge-easy">✅ Easy</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">
+      tempmail-unofficial api
+    </div>
+    <ul class="footer-nav">
+      <li><a href="#playground">Code snippets</a></li>
+      <li><a href="#features">Architecture</a></li>
+      <li><a href="#demo">Live Terminal</a></li>
+      <li><a href="https://github.com/josskixg/TempMail-UnofficialAPI/blob/main/LICENSE" target="_blank" rel="noopener">License</a></li>
+    </ul>
+    <p class="footer-text">Released under the MIT License. Built with ❤️ for the open-source developer ecosystem.</p>
+  </footer>
+
+  <!-- Script Import -->
+  <script src="app.js"></script>
+</body>
+</html>
