@@ -1,0 +1,16 @@
+TempMail Unofficial API — Multi-Language Wrappers
+Copyright 2026 TempMail-UnofficialAPI Contributors
+
+This project includes unofficial API wrappers for the following third-party services:
+
+- Mail.tm (mail.tm) — Unofficial REST wrapper
+- Mail.tm (mail.tm) — Unofficial REST wrapper
+- GuerrillaMail (guerrillamail.com) — Unofficial REST wrapper
+- YOPmail (yopmail.com) — Unofficial HTML scraping wrapper
+- Dropmail (dropmail.me) — Unofficial GraphQL wrapper
+
+This project is NOT affiliated with, endorsed by, or connected to any of the above services.
+All trademarks and service marks are the property of their respective owners.
+
+Use of these wrappers is at your own risk. API endpoints may change without notice.
+Users are responsible for complying with each service's terms of use.

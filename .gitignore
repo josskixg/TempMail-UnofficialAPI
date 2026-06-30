@@ -1,0 +1,73 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go
+go/*.exe
+go/tmp/
+
+# Python
+**/__pycache__/
+**/*.pyc
+python/.venv/
+python/venv/
+python/dist/
+python/*.egg-info/
+
+# Java
+java/target/
+java/*.class
+java/.idea/
+*.jar
+*.war
+
+# PHP
+php/vendor/
+php/composer.lock
+
+# JavaScript
+javascript/node_modules/
+javascript/dist/
+javascript/.cache/
+
+# Rust
+rust/target/
+
+# C#
+**/bin/
+**/obj/
+csharp/*.user
+csharp/*.suo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Env
+.env
+.env.local
+**/.env
+**/.env.local
+*.log
+
+# HAR / Network Logs
+*.har
+out.html
+
+# Test / Captcha Artifacts
+cookies.txt
+captcha_check.png
+captcha_test.png
+
+# Agent & MCP Directories
+.omo/
+.playwright-mcp/
