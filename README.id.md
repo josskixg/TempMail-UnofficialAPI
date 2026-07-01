@@ -35,6 +35,7 @@ Kumpulan **unofficial wrapper** untuk berbagai layanan Temporary Email, ditulis 
 | 3 | YOPmail | yopmail.com | HTML Scraping | Tidak ada | ⚡ Sedang |
 | 4 | Dropmail | dropmail.me | GraphQL | Token (otomatis) | ✅ Mudah |
 | 5 | 1secemail | 1secemail.com | REST | Tidak ada | ✅ Mudah |
+| 6 | Ncaori Mail+ | nca.my.id | REST+JSON | Tidak ada | ✅ Mudah |
 
 ## 📁 Struktur Project
 

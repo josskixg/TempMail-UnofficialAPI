@@ -189,3 +189,15 @@ async fn test_onesecemail() {
     )
     .await;
 }
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_ncaori() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::NcaoriMail)
+            .unwrap(),
+        "NcaoriMail",
+    )
+    .await;
+}

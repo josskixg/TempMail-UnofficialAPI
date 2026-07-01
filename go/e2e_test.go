@@ -95,7 +95,7 @@ func sendTestEmail(to string) error {
 }
 
 func TestProvidersE2E(t *testing.T) {
-	providerList := []string{"mailtm", "guerrillamail", "yopmail", "dropmail", "1secemail"}
+	providerList := []string{"mailtm", "guerrillamail", "yopmail", "dropmail", "1secemail", "ncaori"}
 
 	for _, name := range providerList {
 		t.Run(name, func(t *testing.T) {

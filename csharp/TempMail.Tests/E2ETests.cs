@@ -64,6 +64,20 @@ public class E2ETests
         }
     }
 
+    [Fact]
+    public async Task NcaoriMail_FullFlow()
+    {
+        var provider = TempMailFactory.Create("ncaori");
+        try
+        {
+            await TestProviderFlow(provider);
+        }
+        catch (Exceptions.TempMailException ex) when (ex.Message.Contains("network") || ex.Message.Contains("404"))
+        {
+            Console.WriteLine($"SKIP: ncaori unavailable: {ex.Message}");
+        }
+    }
+
     private static async Task TestProviderFlow(ITempMailProvider provider)
     {
         string email;

@@ -11,6 +11,7 @@ from tempmail_wrapper import (
     DropmailProvider,
     GuerrillaMailProvider,
     MailTmProvider,
+    NcaoriMailProvider,
     OneSecEmailProvider,
     YopmailProvider,
     create_provider,
@@ -286,10 +287,50 @@ class TestDropmail:
 
 
 @pytest.mark.e2e
+class TestNcaoriMail:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("ncaori")
+        assert isinstance(provider, NcaoriMailProvider)
+
+        # 1. Generate email
+        try:
+            email = provider.generate_email()
+        except TempMailError as e:
+            pytest.skip(f"ncaori unavailable: {e}")
+        assert "@" in email
+
+        # 2. Check inbox
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+        except TempMailError as e:
+            pytest.skip(f"ncaori inbox error: {e}")
+        assert isinstance(inbox, list)
+        if not inbox:
+            print(f"WARNING: inbox empty (test email sent={sent})")
+
+        # 3. Read message — Ncaori returns full body in get_inbox()
+        if inbox:
+            if hasattr(inbox[0], 'body_text'):
+                assert isinstance(inbox[0].body_text, str)
+            elif hasattr(inbox[0], 'id'):
+                try:
+                    provider.read_message(inbox[0].id)
+                except TempMailError:
+                    pass
+
+        # 4. Delete email
+        result = provider.delete_email(email)
+        assert result is True
+
+
+@pytest.mark.e2e
 class TestFactory:
     def test_create_all_providers(self, network_available: bool) -> None:
         _skip_if_no_network(network_available)
-        for name in ["mail.tm", "guerrillamail", "yopmail", "dropmail", "1secemail"]:
+        for name in ["mail.tm", "guerrillamail", "yopmail", "dropmail", "1secemail", "ncaori"]:
             provider = create_provider(name)
             assert isinstance(provider, TempMailProvider)
             assert provider.name == name or name in provider.name

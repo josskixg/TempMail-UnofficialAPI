@@ -9,6 +9,7 @@ from .providers import (
     DropmailProvider,
     GuerrillaMailProvider,
     MailTmProvider,
+    NcaoriMailProvider,
     OneSecEmailProvider,
     YopmailProvider,
 )
@@ -34,5 +35,6 @@ __all__ = [
     "GuerrillaMailProvider",
     "YopmailProvider",
     "DropmailProvider",
+    "NcaoriMailProvider",
     "OneSecEmailProvider",
 ]

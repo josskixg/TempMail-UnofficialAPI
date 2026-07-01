@@ -7,12 +7,14 @@ export { GuerrillaMail } from './providers/GuerrillaMail.js';
 export { YOPmail } from './providers/YOPmail.js';
 export { Dropmail } from './providers/Dropmail.js';
 export { OneSecEmail } from './providers/OneSecEmail.js';
+export { NcaoriMail } from './providers/NcaoriMail.js';
 
 import { MailTm } from './providers/MailTm.js';
 import { GuerrillaMail } from './providers/GuerrillaMail.js';
 import { YOPmail } from './providers/YOPmail.js';
 import { Dropmail } from './providers/Dropmail.js';
 import { OneSecEmail } from './providers/OneSecEmail.js';
+import { NcaoriMail } from './providers/NcaoriMail.js';
 import { TempMailError } from './errors.js';
 
 /**
@@ -38,6 +40,10 @@ export function createProvider(name, config = {}) {
       return new Dropmail(config);
     case '1secemail':
       return new OneSecEmail(config);
+    case 'ncaori':
+    case 'ncaorimail':
+    case 'nca.my.id':
+      return new NcaoriMail(config);
     default:
       throw new TempMailError(`Unknown provider: ${name}`);
   }

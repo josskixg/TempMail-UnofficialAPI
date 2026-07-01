@@ -5,6 +5,7 @@ import com.tempmail.providers.GuerrillaMailProvider;
 import com.tempmail.providers.MailTmProvider;
 import com.tempmail.providers.YOPmailProvider;
 import com.tempmail.providers.OneSecEmailProvider;
+import com.tempmail.providers.NcaoriMailProvider;
 
 public final class TempMailFactory {
 
@@ -13,7 +14,8 @@ public final class TempMailFactory {
         GUERRILLAMAIL,
         YOPMAIL,
         DROPMAIL,
-        ONESECMAIL
+        ONESECMAIL,
+        NCAORIMAIL
     }
 
     private TempMailFactory() {
@@ -31,6 +33,8 @@ public final class TempMailFactory {
                 return new DropmailProvider();
             case ONESECMAIL:
                 return new OneSecEmailProvider();
+            case NCAORIMAIL:
+                return new NcaoriMailProvider();
             default:
                 throw new IllegalArgumentException("Unknown service: " + service);
         }
@@ -59,9 +63,12 @@ public final class TempMailFactory {
             case "1secemail":
             case "onesecmail":
                 return new OneSecEmailProvider();
+            case "ncaori":
+            case "ncaorimail":
+                return new NcaoriMailProvider();
             default:
                 throw new IllegalArgumentException("Unknown provider: " + provider
-                        + ". Supported: mail_tm, guerrilla_mail, yopmail, dropmail");
+                        + ". Supported: mail_tm, guerrilla_mail, yopmail, dropmail, ncaori");
         }
     }
 
