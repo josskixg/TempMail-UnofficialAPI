@@ -134,7 +134,7 @@ csharp/TempMail.Tests/ # xUnit
 
 Each test suite covers:
 
-- All 4 providers for the generate → inbox → read → delete cycle.
+- All 5 providers for the generate → inbox → read → delete cycle.
 - Error paths: unknown message ID, deleted email.
 - `wait_for_email` with a real email send via the Resend API.
 

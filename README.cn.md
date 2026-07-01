@@ -5,7 +5,7 @@
 # 📬 TempMail Unofficial API — 多语言封装库
 
 <p align="center">
-  <strong>v1.0.0</strong> — 发布于 2026-06-30 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">发布说明</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">更新日志</a>
+  <strong>v1.0.0</strong> — 发布于 2026-06-30 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">发布说明</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">更新日志</a> &nbsp;|&nbsp; <a href="./PLAN_v1.1.0.md">v1.1.0 计划</a>
 </p>
 
 [🇬🇧 English](./README.md) | [🇮🇩 Bahasa Indonesia](./README.id.md) | [🇨🇳 中文](./README.cn.md)

@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Unified temp-mail wrapper across 7 languages: Python, Go, JavaScript, Java, PHP, Rust, and C#.
-- Four provider implementations: Mail.tm, GuerrillaMail, YOPmail (HTML scraping), and Dropmail.me (GraphQL).
+- Five provider implementations: Mail.tm, GuerrillaMail, YOPmail (HTML scraping), Dropmail.me (GraphQL), and 1secemail.
 - Common interface contract: `generate_email`, `get_inbox`, `read_message`, `delete_email`, `wait_for_email`.
 - Data models: `Message` (id, sender, subject, date) and `MessageDetail` (body_text, body_html, attachments).
 - Factory pattern for provider creation by name — no API keys required.

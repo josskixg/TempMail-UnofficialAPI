@@ -43,7 +43,7 @@ Pick the method that matches the service's public interface. Prefer REST > Graph
 2. Implement the interface contract using idiomatic patterns for that language.
 3. Include data models (`Message`, `MessageDetail`) and an error hierarchy.
 4. Add a factory function for provider creation by name.
-5. Write E2E tests covering all four providers.
+5. Write E2E tests covering all five providers.
 6. Add a `README.md` inside the language directory.
 
 Use the existing Python or Go implementation as a reference for behavior parity.

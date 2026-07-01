@@ -5,7 +5,7 @@
 # 📬 TempMail Unofficial API — Multi-Language Wrappers
 
 <p align="center">
-  <strong>v1.0.0</strong> — Released 2026-06-30 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">Changelog</a>
+  <strong>v1.0.0</strong> — Released 2026-06-30 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">Changelog</a> &nbsp;|&nbsp; <a href="./PLAN_v1.1.0.md">v1.1.0 Plan</a>
 </p>
 
 [🇬🇧 English](./README.md) | [🇮🇩 Bahasa Indonesia](./README.id.md) | [🇨🇳 中文](./README.cn.md)

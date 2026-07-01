@@ -104,7 +104,7 @@ When adding a new provider test:
 
 When adding a new language:
 
-1. Port the full test suite (all 4 providers) from the reference implementation.
+1. Port the full test suite (all 5 providers) from the reference implementation.
 2. Use the language-native test framework (pytest, testing, Jest, JUnit, PHPUnit, cargo test, xUnit).
 3. Ensure tests can run from a single command (see above).
 
