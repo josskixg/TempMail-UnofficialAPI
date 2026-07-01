@@ -38,6 +38,8 @@ func NewProvider(name string, config map[string]string) (TempMailProvider, error
 		return providers.NewDropmail(config), nil
 	case "1secemail":
 		return providers.NewOneSecEmail(config), nil
+	case "ncaori":
+		return providers.NewNcaoriMail(config), nil
 	default:
 		return nil, fmt.Errorf("unknown provider: %s", name)
 	}

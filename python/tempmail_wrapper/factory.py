@@ -9,6 +9,7 @@ from .providers import (
     DropmailProvider,
     GuerrillaMailProvider,
     MailTmProvider,
+    NcaoriMailProvider,
     OneSecEmailProvider,
     YopmailProvider,
 )
@@ -19,6 +20,7 @@ _PROVIDERS: dict[str, type[TempMailProvider]] = {
     "yopmail": YopmailProvider,
     "dropmail": DropmailProvider,
     "1secemail": OneSecEmailProvider,
+    "ncaori": NcaoriMailProvider,
 }
 
 

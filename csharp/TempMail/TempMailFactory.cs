@@ -16,7 +16,8 @@ public static class TempMailFactory
             "yopmail" => new YOPmailProvider(httpClient ?? new HttpClient(useCookies: true)),
             "dropmail" or "dropmail.me" => new DropmailProvider(httpClient),
             "1secemail" => new OneSecEmailProvider(httpClient ?? new HttpClient(useCookies: true)),
-            _ => throw new ArgumentException($"Unknown provider: {name}. Supported: mailtm, guerrillamail, yopmail, dropmail, 1secemail", nameof(name))
+            "ncaori" or "ncaorimail" or "nca.my.id" => new NcaoriMailProvider(httpClient ?? new HttpClient(useCookies: false)),
+            _ => throw new ArgumentException($"Unknown provider: {name}. Supported: mailtm, guerrillamail, yopmail, dropmail, 1secemail, ncaori", nameof(name))
         };
     }
 }

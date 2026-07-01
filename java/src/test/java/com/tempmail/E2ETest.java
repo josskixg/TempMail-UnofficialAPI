@@ -7,6 +7,7 @@ import com.tempmail.providers.DropmailProvider;
 import com.tempmail.providers.GuerrillaMailProvider;
 import com.tempmail.providers.MailTmProvider;
 import com.tempmail.providers.OneSecEmailProvider;
+import com.tempmail.providers.NcaoriMailProvider;
 import com.tempmail.providers.YOPmailProvider;
 
 import java.net.http.HttpClient;
@@ -54,6 +55,7 @@ public class E2ETest {
         testProvider("yopmail", new YOPmailProvider());
         testProvider("dropmail", new DropmailProvider());
         testProvider("1secemail", new OneSecEmailProvider());
+        testProvider("ncaori", new NcaoriMailProvider());
 
         System.out.println("\n=== Results ===");
         System.out.println("Passed: " + passed);
@@ -77,6 +79,8 @@ public class E2ETest {
                     TempMailFactory.create("mail_tm") instanceof MailTmProvider);
             assertCondition("guerrilla_mail factory",
                     TempMailFactory.create("guerrilla_mail") instanceof GuerrillaMailProvider);
+            assertCondition("ncaori factory",
+                    TempMailFactory.create("ncaori") instanceof NcaoriMailProvider);
         } catch (Exception e) {
             fail("factory", e);
         }

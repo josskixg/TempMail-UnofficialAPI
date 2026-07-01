@@ -3,6 +3,7 @@ pub mod guerrilla_mail;
 pub mod mail_tm;
 pub mod yopmail;
 pub mod one_sec_email;
+pub mod ncaori_mail;
 
 use std::time::Duration;
 

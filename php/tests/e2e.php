@@ -30,6 +30,7 @@ require_once __DIR__ . '/../src/Providers/GuerrillaMailProvider.php';
 require_once __DIR__ . '/../src/Providers/YOPmailProvider.php';
 require_once __DIR__ . '/../src/Providers/DropmailProvider.php';
 require_once __DIR__ . '/../src/Providers/OneSecEmailProvider.php';
+require_once __DIR__ . '/../src/Providers/NcaoriMailProvider.php';
 require_once __DIR__ . '/../src/TempMailFactory.php';
 
 use TempMail\TempMailFactory;
@@ -242,7 +243,7 @@ test('TempMailFactory::create(dropmail)', function () {
 });
 
 // Test each provider
-$providers = ['mailtm', 'guerrilla', 'yopmail', 'dropmail', '1secemail'];
+$providers = ['mailtm', 'guerrilla', 'yopmail', 'dropmail', '1secemail', 'ncaori'];
 
 foreach ($providers as $name) {
     try {

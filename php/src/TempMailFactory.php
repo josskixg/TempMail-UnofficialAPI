@@ -9,6 +9,7 @@ use TempMail\Providers\GuerrillaMailProvider;
 use TempMail\Providers\YOPmailProvider;
 use TempMail\Providers\DropmailProvider;
 use TempMail\Providers\OneSecEmailProvider;
+use TempMail\Providers\NcaoriMailProvider;
 
 class TempMailFactory
 {
@@ -37,6 +38,7 @@ class TempMailFactory
             'yopmail' => new \TempMail\Providers\YOPmailProvider($http),
             'dropmail', 'dropmail.me' => new \TempMail\Providers\DropmailProvider($http),
             '1secemail' => new \TempMail\Providers\OneSecEmailProvider($http),
+            'ncaori', 'ncaorimail', 'nca.my.id' => new \TempMail\Providers\NcaoriMailProvider($http),
             default => throw new \InvalidArgumentException("Unknown provider: $name"),
         };
     }

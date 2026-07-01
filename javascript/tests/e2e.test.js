@@ -180,6 +180,12 @@ describe('E2E Provider Tests', () => {
       await testProvider('1secemail');
     });
   });
+
+  describe('ncaori', () => {
+    it('should complete full flow', async () => {
+      await testProvider('ncaori');
+    });
+  });
 });
 
 describe('Factory Tests', () => {
@@ -199,6 +205,18 @@ describe('Factory Tests', () => {
     const provider = createProvider('1secemail');
     assert.ok(provider);
     assert.strictEqual(provider.name, '1secemail');
+  });
+
+  it('should create ncaori provider', () => {
+    const provider = createProvider('ncaori');
+    assert.ok(provider);
+    assert.strictEqual(provider.name, 'ncaori');
+  });
+
+  it('should create ncaori provider with alternate name', () => {
+    const provider = createProvider('nca.my.id');
+    assert.ok(provider);
+    assert.strictEqual(provider.name, 'ncaori');
   });
 
   it('should throw on unknown provider', () => {

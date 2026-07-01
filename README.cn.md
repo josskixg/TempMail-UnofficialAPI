@@ -35,6 +35,7 @@
 | 3 | YOPmail | yopmail.com | HTML 抓取 | 无 | ⚡ 中等 |
 | 4 | Dropmail | dropmail.me | GraphQL | Token (自动) | ✅ 简单 |
 | 5 | 1secemail | 1secemail.com | REST | 无 | ✅ 简单 |
+| 6 | Ncaori Mail+ | nca.my.id | REST+JSON | 无 | ✅ 简单 |
 
 ## 📁 项目结构
 

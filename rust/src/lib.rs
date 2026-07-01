@@ -13,6 +13,7 @@ use providers::guerrilla_mail::{GuerrillaMail, GuerrillaMailConfig};
 use providers::mail_tm::{MailTm, MailTmConfig};
 use providers::yopmail::{Yopmail, YopmailConfig};
 use providers::one_sec_email::OneSecEmail;
+use providers::ncaori_mail::NcaoriMail;
 
 /// Available temporary email providers.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -22,6 +23,7 @@ pub enum Provider {
     Yopmail,
     Dropmail,
     OneSecEmail,
+    NcaoriMail,
 }
 
 /// Builder for constructing a configured provider instance.
@@ -49,6 +51,7 @@ impl TempMailBuilder {
             Provider::Yopmail => Ok(Box::new(Yopmail::new(client, None))),
             Provider::Dropmail => Ok(Box::new(Dropmail::new(client, None))),
             Provider::OneSecEmail => Ok(Box::new(OneSecEmail::new(client))),
+            Provider::NcaoriMail => Ok(Box::new(NcaoriMail::new(client))),
         }
     }
 
