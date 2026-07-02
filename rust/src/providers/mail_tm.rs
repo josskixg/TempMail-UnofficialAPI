@@ -191,8 +191,7 @@ impl TempMailProvider for MailTm {
                 id: m.id,
                 sender: m.from_info.address,
                 subject: m.subject.unwrap_or_default(),
-                date: parse_date(&m.created_at),
-            })
+                date: parse_date(&m.created_at), preview: String::new(), has_attachments: false })
             .collect())
     }
 
@@ -219,12 +218,10 @@ impl TempMailProvider for MailTm {
                 id: raw.id,
                 sender: raw.from_info.address,
                 subject: raw.subject.unwrap_or_default(),
-                date: parse_date(&raw.created_at),
-            },
+                date: parse_date(&raw.created_at), preview: String::new(), has_attachments: false },
             body_text: raw.text,
             body_html,
-            attachments: raw.attachments.unwrap_or_default(),
-        })
+            attachments: raw.attachments.unwrap_or_default(), ..Default::default()         })
     }
 
     async fn delete_email(&self, _email: &str) -> Result<bool, TempMailError> {

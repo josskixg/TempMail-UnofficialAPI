@@ -43,7 +43,7 @@ Pick the method that matches the service's public interface. Prefer REST > Graph
 2. Implement the interface contract using idiomatic patterns for that language.
 3. Include data models (`Message`, `MessageDetail`) and an error hierarchy.
 4. Add a factory function for provider creation by name.
-5. Write E2E tests covering all five providers.
+5. Write E2E tests covering all 16 providers.
 6. Add a `README.md` inside the language directory.
 
 Use the existing Python or Go implementation as a reference for behavior parity.
@@ -62,11 +62,12 @@ The required test flow:
 
 ## Pull Request Process
 
-1. Fork the repository and create a feature branch.
-2. Implement changes following the patterns above.
-3. Ensure E2E tests pass for the affected language(s).
-4. Update the relevant per-language `README.md` if API surface changes.
-5. Submit a pull request with a clear description of what was added or changed.
+1. Fork the repository at [github.com/josskixg/TempMail-UnofficialAPI](https://github.com/josskixg/TempMail-UnofficialAPI).
+2. Create a feature branch from `main`.
+3. Implement changes following the patterns above.
+4. Ensure E2E tests pass for the affected language(s).
+5. Update the relevant per-language `README.md` if API surface changes.
+6. Submit a pull request with a clear description of what was added or changed.
 
 Pull requests should:
 
@@ -77,7 +78,7 @@ Pull requests should:
 
 ## Reporting Bugs
 
-Open a GitHub issue with:
+Open a [GitHub Issue](https://github.com/josskixg/TempMail-UnofficialAPI/issues/new) with:
 
 - The language and provider affected.
 - Steps to reproduce.

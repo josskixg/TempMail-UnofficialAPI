@@ -87,7 +87,7 @@
     <!-- Badge Row (Features) -->
     <g transform="translate(0, 160)" font-family="system-ui, -apple-system, sans-serif" font-size="10.5" font-weight="600" fill="#cbd5e1">
       <rect x="0" y="0" width="60" height="20" rx="6" fill="#ce412b" fill-opacity="0.15" stroke="#ce412b" stroke-width="1" />
-      <text x="10" y="14" fill="#fca5a5">v1.0.0</text>
+      <text x="10" y="14" fill="#fca5a5">v1.1.0</text>
       
       <rect x="68" y="0" width="55" height="20" rx="6" fill="#ce412b" fill-opacity="0.15" stroke="#ce412b" stroke-width="1" />
       <text x="78" y="14" fill="#fca5a5">Cargo</text>
@@ -96,7 +96,7 @@
       <text x="139" y="14" fill="#fca5a5">Tokio Async</text>
       
       <rect x="210" y="0" width="85" height="20" rx="6" fill="#ce412b" fill-opacity="0.15" stroke="#ce412b" stroke-width="1" />
-      <text x="220" y="14" fill="#fca5a5">5 Providers</text>
+      <text x="220" y="14" fill="#fca5a5">16 Providers</text>
     </g>
   </g>
 

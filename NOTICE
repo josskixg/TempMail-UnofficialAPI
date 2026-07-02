@@ -1,13 +1,24 @@
 TempMail Unofficial API — Multi-Language Wrappers
-Copyright 2026 TempMail-UnofficialAPI Contributors
+Copyright 2026 josskixg (https://github.com/josskixg)
 
 This project includes unofficial API wrappers for the following third-party services:
 
 - Mail.tm (mail.tm) — Unofficial REST wrapper
-- Mail.tm (mail.tm) — Unofficial REST wrapper
 - GuerrillaMail (guerrillamail.com) — Unofficial REST wrapper
 - YOPmail (yopmail.com) — Unofficial HTML scraping wrapper
-- Dropmail (dropmail.me) — Unofficial GraphQL wrapper
+- Dropmail.me (dropmail.me) — Unofficial GraphQL wrapper
+- 1secemail (1secemail.com) — Unofficial REST wrapper
+- Ncaori Mail+ (nca.my.id) — Unofficial REST wrapper
+- Zoromail (zoromail.com) — Unofficial REST wrapper
+- Tempmail.lol (tempmail.lol) — Unofficial REST wrapper
+- Tempmailc (tempmailc.com) — Unofficial REST wrapper
+- Temp-mail.io (temp-mail.io) — Unofficial REST wrapper
+- Tempmail.plus (tempmail.plus) — Unofficial REST wrapper
+- Emailfake (emailfake.com) — Unofficial HTML scraping wrapper
+- Generator.email (generator.email) — Unofficial HTML scraping wrapper
+- Email-temp (email-temp.com) — Unofficial HTML scraping wrapper
+- Mailnesia (mailnesia.com) — Unofficial HTML scraping wrapper
+- 10minutemail (10minutemail.com) — Unofficial REST wrapper
 
 This project is NOT affiliated with, endorsed by, or connected to any of the above services.
 All trademarks and service marks are the property of their respective owners.

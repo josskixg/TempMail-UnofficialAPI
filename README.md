@@ -5,7 +5,7 @@
 # 📬 TempMail Unofficial API — Multi-Language Wrappers
 
 <p align="center">
-  <strong>v1.1.0</strong> — Released 2026-07-01 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">Changelog</a> &nbsp;|&nbsp; <a href="./PLAN_v1.1.0.md">v1.1.0 Plan</a>
+  <strong>v1.1.0</strong> — Released 2026-07-02 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">Changelog</a> &nbsp;|&nbsp; <a href="./docs/plan/PLAN_v1.1.0.md">v1.1.0 Plan</a>
 </p>
 
 [🇬🇧 English](./README.md) | [🇮🇩 Bahasa Indonesia](./README.id.md) | [🇨🇳 中文](./README.cn.md)
@@ -28,48 +28,48 @@ Collection of **unofficial wrappers** for various Temporary Email services, writ
 
 ## 🌐 Supported TempMail Services
 
-### v1.0.0 Providers (5)
+The library wrapper currently supports **16 temporary email services**:
 
-| # | Service | Website | API Type | Auth | Difficulty |
-|---|---------|---------|----------|------|-----------|
-| 1 | Mail.tm | mail.tm | REST+JSON | Bearer Token | ✅ Easy |
-| 2 | GuerrillaMail | guerrillamail.com | REST | Session Token | ⚡ Medium |
-| 3 | YOPmail | yopmail.com | HTML Scraping | None | ⚡ Medium |
-| 4 | Dropmail | dropmail.me | GraphQL | Token (auto) | ✅ Easy |
-| 5 | 1secemail | 1secemail.com | REST | None | ✅ Easy |
-| 6 | Ncaori Mail+ | nca.my.id | REST+JSON | None | ✅ Easy |
-
-### v1.1.0 Providers (10)
-
-| # | Service | Website | API Type | Auth | Difficulty |
-|---|---------|---------|----------|------|-----------|
-| 6 | emailfake | emailfake.com | HTML Scraping | surl Cookie | ⚡ Medium |
-| 7 | generator.email | generator.email | HTML Scraping | surl Cookie | ⚡ Medium |
-| 8 | mail-temp.com | mail-temp.com | HTML Scraping | surl Cookie | ⚡ Medium |
-| 9 | zoromail | zoromail.com | REST+JSON | None | ✅ Easy |
-| 10 | tempmail.lol | tempmail.lol | REST+JSON | Token | ✅ Easy |
-| 11 | tempmailc | tempmailc.com | REST+JSON | None | ✅ Easy |
-| 12 | temp-mail.io | temp-mail.io | REST+JSON | Bearer Token | ⚡ Medium |
-| 13 | tempmail.plus | tempmail.plus | REST+JSON | None | ✅ Easy |
-| 14 | mailnesia | mailnesia.com | HTML Scraping | None | ❌ Blocked (403) |
-| 15 | 10minutemail | 10minutemail.com | REST+JSON | Cookie Session | ✅ Easy |
+| # | Service | Website | API Type | Auth | Difficulty | Status |
+|---|---------|---------|----------|------|------------|--------|
+| 1 | Mail.tm | [mail.tm](https://mail.tm) | REST+JSON | Bearer Token | ✅ Easy | Active |
+| 2 | GuerrillaMail | [guerrillamail.com](https://www.guerrillamail.com) | REST | Session Token | ⚡ Medium | Active |
+| 3 | YOPmail | [yopmail.com](https://yopmail.com) | HTML Scraping | None | ⚡ Medium | Active |
+| 4 | Dropmail | [dropmail.me](https://dropmail.me) | GraphQL | Token (auto) | ✅ Easy | Active |
+| 5 | 1secemail | [1secemail.com](https://www.1secemail.com) | REST | None | ✅ Easy | Active |
+| 6 | Ncaori Mail+ | [nca.my.id](https://www.nca.my.id) | REST+JSON | None | ✅ Easy | Active |
+| 7 | Zoromail | [zoromail.com](https://zoromail.com) | REST+JSON | None | ✅ Easy | Active |
+| 8 | Tempmail.lol | [tempmail.lol](https://tempmail.lol) | REST+JSON | Token | ✅ Easy | Active |
+| 9 | Tempmailc | [tempmailc.com](https://tempmailc.com) | REST+JSON | None | ✅ Easy | Active |
+| 10 | Temp-mail.io | [temp-mail.io](https://temp-mail.io) | REST+JSON | Bearer Token | ⚡ Medium | Active |
+| 11 | Tempmail.plus | [tempmail.plus](https://tempmail.plus) | REST+JSON | None | ✅ Easy | Active |
+| 12 | Emailfake | [emailfake.com](https://emailfake.com) | HTML Scraping | Cookie | ⚡ Medium | Active |
+| 13 | Generator.email | [generator.email](https://generator.email) | HTML Scraping | Cookie | ⚡ Medium | Active |
+| 14 | Mailnesia | [mailnesia.com](https://mailnesia.com) | HTML Scraping | None | ⚡ Medium | Active |
+| 15 | 10minutemail | [10minutemail.net](https://10minutemail.net) | HTML Scraping | Cookie Session | ⚡ Medium | Active (via 10minutemail.net) |
+| 16 | Email-temp | [email-temp.com](https://email-temp.com) | HTML Scraping | Cookie | ⚡ Medium | Active |
 
 ## 📁 Project Structure
 
 ```
 TempMail-UnofficialAPI/
-├── go/               # Go wrapper
-├── python/           # Python wrapper
-├── java/             # Java wrapper
-├── php/              # PHP wrapper
-├── javascript/       # Node.js / JavaScript wrapper
-├── rust/             # Rust wrapper
-├── csharp/           # C# / .NET wrapper
-├── README.md         # English (default)
-├── README.id.md      # Bahasa Indonesia
-├── README.cn.md      # 中文
-├── LICENSE           # Apache 2.0
-└── NOTICE            # Attribution & disclaimer
+├── go/                   # Go wrapper
+├── python/               # Python wrapper
+├── java/                 # Java wrapper
+├── php/                  # PHP wrapper
+├── javascript/           # Node.js / JavaScript wrapper
+├── rust/                 # Rust wrapper
+├── csharp/               # C# / .NET wrapper
+├── docs/
+│   └── plan/
+│       └── PLAN_v1.1.0.md  # v1.1.0 implementation plan
+├── README.md             # English (default)
+├── README.id.md          # Bahasa Indonesia
+├── README.cn.md          # 中文
+├── RELEASE_NOTES.md      # Per-version release notes
+├── CHANGELOG.md          # Full change history
+├── LICENSE               # Apache 2.0
+└── NOTICE                # Attribution & disclaimer
 ```
 
 ## 🚀 Quick Start
@@ -133,7 +133,7 @@ All wrappers implement a consistent interface:
 
 Want to add a language? Fix a bug? Go ahead:
 
-1. Fork this repo
+1. Fork this repo at [github.com/josskixg/TempMail-UnofficialAPI](https://github.com/josskixg/TempMail-UnofficialAPI/fork)
 2. Create a branch: `feat/add-kotlin-wrapper`
 3. Commit & push
 4. Open a Pull Request
@@ -147,15 +147,14 @@ Want to add a language? Fix a bug? Go ahead:
 
 ## 🗺️ Roadmap
 
-v1.0.0 shipped with 5 services across 7 languages. Planned for upcoming releases:
+v1.1.0 shipped with 16 services across 7 languages. Planned for upcoming releases:
 
-- **Additional providers** — new temporary email services to be added in v1.1+
-- **Improved YOPmail scraping** — resilience against DOM changes and anti-bot improvements
-- **WebSocket support** for Dropmail.me (real-time inbox subscription)
-- **More languages** — Kotlin, Swift, Ruby pending community interest
-- **CLI tool** — unified command-line interface across all providers
+- **Improved YOPmail & Scraping resilience** — anti-bot bypass improvements and headless support
+- **WebSocket support** for Dropmail.me and Mail.tm (real-time inbox subscription)
+- **More languages** — Kotlin, Swift, and Ruby wrappers
+- **CLI tool** — unified command-line tool to manage temporary mailboxes across all providers directly from your terminal
 
-Contributions welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md).
+Contributions welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md) and open a [PR](https://github.com/josskixg/TempMail-UnofficialAPI/pulls) or [Issue](https://github.com/josskixg/TempMail-UnofficialAPI/issues).
 
 ## 📄 License
 

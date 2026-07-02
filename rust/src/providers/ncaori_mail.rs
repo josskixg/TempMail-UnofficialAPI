@@ -41,7 +41,7 @@ struct NcaoriEmailItem {
 fn random_name() -> String {
     let seed = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_nanos() as u64;
     let mut val = seed;
-    let pick = |arr: &[&str]| {
+    let mut pick = |arr: &[&'static str]| -> &'static str {
         val = val.wrapping_mul(6364136223846793005).wrapping_add(1);
         arr[(val >> 33) as usize % arr.len()]
     };
@@ -83,16 +83,7 @@ impl TempMailProvider for NcaoriMail {
                 .map(|d| d.with_timezone(&chrono::Utc))
                 .unwrap_or_else(chrono::Utc::now);
 
-            if m.body_text.is_some() || m.body_html.is_some() {
-                MessageDetail {
-                    message: Message { id, sender, subject, date },
-                    body_text: m.body_text,
-                    body_html: m.body_html,
-                    attachments: Vec::new(),
-                }
-            } else {
-                Message { id, sender, subject, date }
-            }
+            Message { id, sender, subject, date, ..Default::default() }
         }).collect();
         Ok(msgs)
     }

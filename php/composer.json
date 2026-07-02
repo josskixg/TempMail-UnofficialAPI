@@ -1,6 +1,6 @@
 {
     "name": "tempmail/unofficial-api",
-    "description": "PHP wrapper for 4 temporary email services using native cURL",
+    "description": "PHP wrapper for 16 temporary email services using native cURL",
     "type": "library",
     "license": "MIT",
     "require": {

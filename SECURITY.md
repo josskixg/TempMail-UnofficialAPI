@@ -4,7 +4,7 @@
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Email the maintainer directly at **project-maintainer@example.com** with:
+Report privately via **[GitHub Security Advisories](https://github.com/josskixg/TempMail-UnofficialAPI/security/advisories/new)** or open a private issue at [github.com/josskixg/TempMail-UnofficialAPI](https://github.com/josskixg/TempMail-UnofficialAPI) with the subject line `[SECURITY]`. Include:
 
 - A description of the vulnerability.
 - Steps to reproduce or a proof of concept.
@@ -45,5 +45,7 @@ Only the latest released version receives security patches. Pin your dependency 
 
 | Version | Supported |
 |---------|-----------|
+| 1.1.x | Yes |
 | 1.0.x | Yes |
-| < 1.0 | No |
+| < 1.1 | No |
+

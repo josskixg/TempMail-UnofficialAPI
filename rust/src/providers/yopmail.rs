@@ -135,8 +135,7 @@ impl TempMailProvider for Yopmail {
                 id: cap.get(2).map(|m| m.as_str().to_string()).unwrap_or_default(),
                 sender: cap.get(1).map(|m| m.as_str().to_string()).unwrap_or_default(),
                 subject: cap.get(3).map(|m| m.as_str().to_string()).unwrap_or_default(),
-                date: chrono::Utc::now(),
-            })
+                date: chrono::Utc::now(), preview: String::new(), has_attachments: false })
             .collect();
 
         Ok(messages)
@@ -167,10 +166,12 @@ impl TempMailProvider for Yopmail {
                 sender: String::new(),
                 subject: String::new(),
                 date: chrono::Utc::now(),
+                ..Default::default()
             },
             body_text: None,
             body_html,
             attachments: vec![],
+            ..Default::default()
         })
     }
 

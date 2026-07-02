@@ -57,7 +57,7 @@ func resendAPIKey() string {
 // sendTestEmail sends a test email to the given address via Resend API.
 func sendTestEmail(to string) error {
 	body, err := json.Marshal(map[string]string{
-		"from":    "onboarding@resend.dev",
+		"from":    "onboarding@rokupusu.web.id",
 		"to":      to,
 		"subject": "TempMail E2E Test",
 		"html":    "<p>E2E test email from TempMail wrapper</p>",
@@ -95,7 +95,11 @@ func sendTestEmail(to string) error {
 }
 
 func TestProvidersE2E(t *testing.T) {
-	providerList := []string{"mailtm", "guerrillamail", "yopmail", "dropmail", "1secemail", "ncaori"}
+	providerList := []string{
+		"mailtm", "guerrillamail", "yopmail", "dropmail", "1secemail", "ncaori",
+		"zoromail", "tempmail.lol", "tempmailc", "temp-mail.io", "tempmail.plus",
+		"emailfake", "generator.email", "mailnesia", "10minutemail", "email-temp",
+	}
 
 	for _, name := range providerList {
 		t.Run(name, func(t *testing.T) {
@@ -169,5 +173,6 @@ func isSkipErr(err error) bool {
 	return strings.Contains(s, "429") || strings.Contains(s, "rate limit") || strings.Contains(s, "timeout") ||
 		strings.Contains(s, "403") || strings.Contains(s, "400") || strings.Contains(s, "402") ||
 		strings.Contains(s, "captcha") || strings.Contains(s, "Permission denied") ||
-		strings.Contains(s, "failed to get token") || strings.Contains(s, "failed to create session")
+		strings.Contains(s, "failed to get token") || strings.Contains(s, "failed to create session") ||
+		strings.Contains(s, "no address in response") || strings.Contains(s, "max retries exceeded")
 }

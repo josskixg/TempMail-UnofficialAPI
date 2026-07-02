@@ -111,8 +111,7 @@ impl TempMailProvider for GuerrillaMail {
                 id: m.mail_id,
                 sender: m.mail_from,
                 subject: m.mail_subject,
-                date: parse_date(&m.mail_date),
-            })
+                date: parse_date(&m.mail_date), preview: String::new(), has_attachments: false })
             .collect())
     }
 
@@ -141,12 +140,10 @@ impl TempMailProvider for GuerrillaMail {
                 id: resp.mail_id,
                 sender: resp.mail_from,
                 subject: resp.mail_subject,
-                date: parse_date(&resp.mail_date),
-            },
+                date: parse_date(&resp.mail_date), preview: String::new(), has_attachments: false },
             body_text,
             body_html,
-            attachments: vec![],
-        })
+            attachments: vec![], ..Default::default()         })
     }
 
     async fn delete_email(&self, email: &str) -> Result<bool, TempMailError> {

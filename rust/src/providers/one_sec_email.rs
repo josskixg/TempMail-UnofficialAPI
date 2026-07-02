@@ -154,7 +154,7 @@ impl TempMailProvider for OneSecEmail {
                 .and_then(|s| chrono::NaiveDateTime::parse_from_str(&s, "%Y-%m-%d %H:%M:%S").ok())
                 .map(|dt| chrono::DateTime::<chrono::Utc>::from_naive_utc_and_offset(dt, chrono::Utc))
                 .unwrap_or_else(chrono::Utc::now);
-            Message { id: it.id, sender, subject, date }
+            Message { id: it.id, sender, subject, date, ..Default::default() }
         }).collect())
     }
 
@@ -179,10 +179,11 @@ impl TempMailProvider for OneSecEmail {
             .unwrap_or_else(chrono::Utc::now);
 
         Ok(MessageDetail {
-            message: Message { id: message_id.into(), sender, subject, date },
+            message: Message { id: message_id.into(), sender, subject, date, ..Default::default() },
             body_text: Some(text),
             body_html: Some(html),
             attachments: vec![],
+            ..Default::default()
         })
     }
 

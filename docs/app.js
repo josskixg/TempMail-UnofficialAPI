@@ -33,7 +33,11 @@ func main() {
     code: `import time
 from tempmail_wrapper import create_provider
 
-# 1. Initialize provider (mail.tm, dropmail, guerrillamail, yopmail, 1secemail)
+# 1. Initialize provider — choose any of 16 providers:
+#    mail.tm | guerrillamail | yopmail | dropmail | 1secemail
+#    ncaori  | zoromail | tempmail.lol | tempmailc | temp-mail.io
+#    tempmail.plus | emailfake | generator.email | email-temp
+#    mailnesia | 10minutemail
 provider = create_provider("mail.tm")
 
 # 2. Generate email
@@ -46,9 +50,14 @@ message = provider.wait_for_email(email, timeout=60, interval=5)
 
 if message:
     print(f"New mail: {message.subject} from {message.sender}")
-    # 4. Fetch full details including bodies/attachments
+    # 4. Fetch full details — body_text/body_html auto-normalized
     detail = provider.read_message(message.id)
-    print(f"Body:\\n{detail.body_text}")
+    print(f"Content-Type: {detail.content_type}")
+    print(f"Is HTML: {detail.is_html}")
+    print(f"Plain text:\\n{detail.body_text}")
+    print(f"Preview: {detail.body_preview}")
+    if detail.body_html:
+        print(f"HTML body available ({len(detail.body_html)} chars)")
 
 # 5. Clean up
 provider.delete_email(email)`

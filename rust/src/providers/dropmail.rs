@@ -399,8 +399,7 @@ impl TempMailProvider for Dropmail {
                 id: m.id,
                 sender: m.from_addr.unwrap_or_default(),
                 subject: m.header_subject.unwrap_or_default(),
-                date: m.received_at.as_deref().map(parse_date).unwrap_or_else(chrono::Utc::now),
-            })
+                date: m.received_at.as_deref().map(parse_date).unwrap_or_else(chrono::Utc::now), preview: String::new(), has_attachments: false })
             .collect())
     }
 
@@ -438,12 +437,10 @@ impl TempMailProvider for Dropmail {
                     id: mail.id,
                     sender: mail.from_addr.unwrap_or_default(),
                     subject: mail.header_subject.unwrap_or_default(),
-                    date: mail.received_at.as_deref().map(parse_date).unwrap_or_else(chrono::Utc::now),
-                },
+                    date: mail.received_at.as_deref().map(parse_date).unwrap_or_else(chrono::Utc::now), preview: String::new(), has_attachments: false },
                 body_text: mail.text,
                 body_html: mail.html,
-                attachments: mail.attachments.unwrap_or_default(),
-            })
+                attachments: mail.attachments.unwrap_or_default(), ..Default::default()             })
             .ok_or(TempMailError::NotFound)
     }
 

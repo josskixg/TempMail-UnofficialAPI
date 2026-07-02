@@ -61,10 +61,10 @@ public sealed class NcaoriMailProvider : ITempMailProvider
             if (hasBody || hasHtml)
             {
                 msgs.Add(new MessageDetail(
-                    Id: id, Sender: sender, Subject: subject, Date: date,
-                    BodyText: hasBody ? bt.GetString() ?? "" : "",
-                    BodyHtml: hasHtml ? bh.GetString() ?? "" : "",
-                    Attachments: new List<JsonElement>()
+                    id, sender, subject, date,
+                    bodyText: hasBody ? bt.GetString() ?? "" : "",
+                    bodyHtml: hasHtml ? bh.GetString() ?? "" : "",
+                    attachments: new List<JsonElement>()
                 ));
             }
             else

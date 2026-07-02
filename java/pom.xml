@@ -6,11 +6,11 @@
 
     <groupId>com.tempmail</groupId>
     <artifactId>tempmail-api</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>TempMail Unofficial API</name>
-    <description>Java wrapper library for 4 temporary email services — zero external dependencies</description>
+    <description>Java wrapper library for 16 temporary email services — zero external dependencies</description>
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>

@@ -11,5 +11,7 @@ class Message
         public readonly string $sender,
         public readonly string $subject,
         public readonly \DateTimeImmutable $date,
+        public readonly string $preview = '',
+        public readonly bool $hasAttachments = false,
     ) {}
 }

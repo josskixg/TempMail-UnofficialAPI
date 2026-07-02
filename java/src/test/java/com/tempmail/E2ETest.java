@@ -3,12 +3,7 @@ package com.tempmail;
 import com.tempmail.errors.TempMailException;
 import com.tempmail.models.Message;
 import com.tempmail.models.MessageDetail;
-import com.tempmail.providers.DropmailProvider;
-import com.tempmail.providers.GuerrillaMailProvider;
-import com.tempmail.providers.MailTmProvider;
-import com.tempmail.providers.OneSecEmailProvider;
-import com.tempmail.providers.NcaoriMailProvider;
-import com.tempmail.providers.YOPmailProvider;
+import com.tempmail.providers.*;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -56,6 +51,16 @@ public class E2ETest {
         testProvider("dropmail", new DropmailProvider());
         testProvider("1secemail", new OneSecEmailProvider());
         testProvider("ncaori", new NcaoriMailProvider());
+        testProvider("zoromail", new ZoromailProvider());
+        testProvider("tempmail_lol", new TempmailLolProvider());
+        testProvider("tempmailc", new TempmailcProvider());
+        testProvider("temp_mail_io", new TempMailIoProvider());
+        testProvider("tempmail_plus", new TempmailPlusProvider());
+        testProvider("emailfake", new EmailfakeProvider());
+        testProvider("generator_email", new GeneratorEmailProvider());
+        testProvider("mailnesia", new MailnesiaProvider());
+        testProvider("tenminutemail", new TenMinuteMailProvider());
+        testProvider("email_temp", new EmailTempProvider());
 
         System.out.println("\n=== Results ===");
         System.out.println("Passed: " + passed);
@@ -81,6 +86,26 @@ public class E2ETest {
                     TempMailFactory.create("guerrilla_mail") instanceof GuerrillaMailProvider);
             assertCondition("ncaori factory",
                     TempMailFactory.create("ncaori") instanceof NcaoriMailProvider);
+            assertCondition("zoromail factory",
+                    TempMailFactory.create("zoromail") instanceof ZoromailProvider);
+            assertCondition("tempmail_lol factory",
+                    TempMailFactory.create("tempmail.lol") instanceof TempmailLolProvider);
+            assertCondition("tempmailc factory",
+                    TempMailFactory.create("tempmailc") instanceof TempmailcProvider);
+            assertCondition("temp_mail_io factory",
+                    TempMailFactory.create("temp-mail.io") instanceof TempMailIoProvider);
+            assertCondition("tempmail_plus factory",
+                    TempMailFactory.create("tempmail.plus") instanceof TempmailPlusProvider);
+            assertCondition("emailfake factory",
+                    TempMailFactory.create("emailfake") instanceof EmailfakeProvider);
+            assertCondition("generator_email factory",
+                    TempMailFactory.create("generator.email") instanceof GeneratorEmailProvider);
+            assertCondition("mailnesia factory",
+                    TempMailFactory.create("mailnesia") instanceof MailnesiaProvider);
+            assertCondition("tenminutemail factory",
+                    TempMailFactory.create("10minutemail") instanceof TenMinuteMailProvider);
+            assertCondition("email_temp factory",
+                    TempMailFactory.create("email-temp") instanceof EmailTempProvider);
         } catch (Exception e) {
             fail("factory", e);
         }
@@ -215,7 +240,7 @@ public class E2ETest {
                         .connectTimeout(Duration.ofSeconds(10))
                         .build();
                 String escaped = to.replace("\"", "\\\"");
-                String body = "{\"from\":\"onboarding@resend.dev\",\"to\":\"" + escaped + "\",\"subject\":\"TempMail E2E Test\",\"html\":\"<p>E2E test email from TempMail wrapper</p>\"}";
+                String body = "{\"from\":\"onboarding@rokupusu.web.id\",\"to\":\"" + escaped + "\",\"subject\":\"TempMail E2E Test\",\"html\":\"<p>E2E test email from TempMail wrapper</p>\"}";
                 HttpRequest request = HttpRequest.newBuilder()
                         .uri(java.net.URI.create("https://api.resend.com/emails"))
                         .header("Content-Type", "application/json")

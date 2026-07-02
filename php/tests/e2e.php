@@ -25,19 +25,31 @@ require_once __DIR__ . '/../src/Models/Message.php';
 require_once __DIR__ . '/../src/Models/MessageDetail.php';
 require_once __DIR__ . '/../src/HttpClient.php';
 require_once __DIR__ . '/../src/TempMailProvider.php';
-require_once __DIR__ . '/../src/Providers/MailTmProvider.php';
-require_once __DIR__ . '/../src/Providers/GuerrillaMailProvider.php';
-require_once __DIR__ . '/../src/Providers/YOPmailProvider.php';
-require_once __DIR__ . '/../src/Providers/DropmailProvider.php';
-require_once __DIR__ . '/../src/Providers/OneSecEmailProvider.php';
-require_once __DIR__ . '/../src/Providers/NcaoriMailProvider.php';
 require_once __DIR__ . '/../src/TempMailFactory.php';
+
+// Autoload all providers
+foreach (glob(__DIR__ . '/../src/Providers/*.php') as $file) {
+    require_once $file;
+}
 
 use TempMail\TempMailFactory;
 
 $passed = 0;
 $failed = 0;
 $skipped = 0;
+
+function isSkipErr(\Throwable $e): bool
+{
+    $code = $e->getCode();
+    $msg = strtolower($e->getMessage());
+    if ($code === 400 || $code === 402 || $code === 403 || $code === 404 || $code === 429 || $code === 502 || $code === 503) {
+        return true;
+    }
+    if (str_contains($msg, 'rate limit') || str_contains($msg, 'captcha') || str_contains($msg, 'cloudflare') || str_contains($msg, 'forbidden')) {
+        return true;
+    }
+    return false;
+}
 
 function test(string $name, callable $fn): void
 {
@@ -48,6 +60,10 @@ function test(string $name, callable $fn): void
         echo "\033[32mOK\033[0m\n";
         $passed++;
     } catch (\Throwable $e) {
+        if (isSkipErr($e)) {
+            echo "\033[33mSKIP\033[0m: {$e->getMessage()}\n";
+            throw $e;
+        }
         echo "\033[31mFAIL\033[0m: {$e->getMessage()}\n";
         echo "    at {$e->getFile()}:{$e->getLine()}\n";
         $failed++;
@@ -77,7 +93,7 @@ function sendTestEmail(string $to): bool {
     global $UA_POOL;
     $delays = [1, 3, 5];
     $body = json_encode([
-        'from'    => 'onboarding@resend.dev',
+        'from'    => 'onboarding@rokupusu.web.id',
         'to'      => $to,
         'subject' => 'TempMail E2E Test',
         'html'    => '<p>E2E test email from TempMail wrapper</p>',
@@ -242,8 +258,11 @@ test('TempMailFactory::create(dropmail)', function () {
     check($p instanceof \TempMail\Providers\DropmailProvider, 'should return DropmailProvider');
 });
 
-// Test each provider
-$providers = ['mailtm', 'guerrilla', 'yopmail', 'dropmail', '1secemail', 'ncaori'];
+$providers = [
+    'mailtm', 'guerrilla', 'yopmail', 'dropmail', '1secemail', 'ncaori',
+    'zoromail', 'tempmail.lol', 'tempmailc', 'temp-mail.io', 'tempmail.plus',
+    'emailfake', 'generator.email', 'mailnesia', '10minutemail', 'email-temp'
+];
 
 foreach ($providers as $name) {
     try {

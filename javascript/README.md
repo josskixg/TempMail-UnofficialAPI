@@ -5,10 +5,10 @@
 # 📦 JavaScript — TempMail Unofficial Wrappers
 
 <p align="center">
-  <strong>v1.1.0</strong> — Released 2026-07-01 &nbsp;|&nbsp; <a href="../RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="../CHANGELOG.md">Changelog</a>
+  <strong>v1.1.0</strong> — Released 2026-07-02 &nbsp;|&nbsp; <a href="../RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="../CHANGELOG.md">Changelog</a>
 </p>
 
-> JavaScript/Node.js wrapper for 15 temporary email services. Zero API keys. Native `fetch`.
+> JavaScript/Node.js wrapper for 16 temporary email services. Zero API keys. Native `fetch`.
 
 ## Prerequisites
 
@@ -102,20 +102,21 @@ Each solver receives the captcha image as `Uint8Array` and returns `string | nul
 | Dropmail.me | `dropmail` | No | GraphQL |
 | 1secemail | `1secemail` | No | REST API |
 
-### v1.1.0 Providers (10)
+### v1.1.0 Providers (11)
 
 | Provider | Factory Name | Requires API Key | Notes |
 |----------|:---:|:---:|:---:|
 | emailfake | `emailfake` | No | HTML scraping, surl cookie |
 | generator.email | `generator.email` | No | HTML scraping, surl cookie |
-| mail-temp.com | `email-temp` | No | HTML scraping, surl cookie |
+| email-temp.com | `email-temp` | No | HTML scraping, surl cookie |
 | zoromail | `zoromail` | No | REST API |
 | tempmail.lol | `tempmail.lol` | No | REST API, token-based |
 | tempmailc | `tempmailc` | No | REST API |
 | temp-mail.io | `temp-mail.io` | No | REST API, Bearer token |
 | tempmail.plus | `tempmail.plus` | No | REST API, email query |
-| mailnesia | `mailnesia` | No | HTML scraping (blocked by 403) |
+| mailnesia | `mailnesia` | No | HTML scraping (rate-limited) |
 | 10minutemail | `10minutemail` | No | REST API, cookie session |
+| ncaori | `ncaori` | No | REST API (nca.my.id) |
 
 ## API Reference
 

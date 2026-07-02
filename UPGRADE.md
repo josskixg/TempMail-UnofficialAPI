@@ -1,6 +1,6 @@
 # Upgrade Guide
 
-## v1.0.0 (2026-06-27)
+## v1.0.0 (2026-06-30)
 
 This is the initial public release. There is no prior version to upgrade from.
 
@@ -54,3 +54,37 @@ If you were using a temp-mail library that requires API keys (e.g., the official
 ### Interface Changes
 
 The five-method contract (`generate_email`, `get_inbox`, `read_message`, `delete_email`, `wait_for_email`) was established early in development and has not changed since. If you used a pre-release draft with a different method name, update to match the current interface documented in [ARCHITECTURE.md](ARCHITECTURE.md).
+
+## v1.1.0 (2026-07-02)
+
+### Upgrading from v1.0.0
+
+No breaking changes. All existing provider factory names from v1.0.0 continue to work without modification.
+
+### New Providers Available
+
+11 new providers are registered in the factory. You can start using them immediately:
+
+`python
+# Python examples � same pattern applies to all languages
+provider = create_provider("ncaori")
+provider = create_provider("zoromail")
+provider = create_provider("tempmail.lol")
+provider = create_provider("tempmailc")
+provider = create_provider("temp-mail.io")
+provider = create_provider("tempmail.plus")
+provider = create_provider("emailfake")
+provider = create_provider("generator.email")
+provider = create_provider("email-temp")
+provider = create_provider("mailnesia")
+provider = create_provider("10minutemail")
+`
+
+### Known Limitations of New Providers
+
+- **mailnesia**: May return 403 on rapid sequential requests (Cloudflare rate-limiting).
+- **10minutemail**: Protected by Cloudflare  requests may be blocked without cookie/session handling.
+
+### Interface
+
+The five-method interface contract (generate_email, get_inbox, read_message, delete_email, wait_for_email) is unchanged. All 11 new providers implement the same contract.

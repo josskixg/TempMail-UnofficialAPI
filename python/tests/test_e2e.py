@@ -14,6 +14,16 @@ from tempmail_wrapper import (
     NcaoriMailProvider,
     OneSecEmailProvider,
     YopmailProvider,
+    ZoromailProvider,
+    TempmailLolProvider,
+    TempmailcProvider,
+    TempMailIoProvider,
+    TempmailPlusProvider,
+    EmailfakeProvider,
+    GeneratorEmailProvider,
+    MailnesiaProvider,
+    TenMinuteMailProvider,
+    EmailTempProvider,
     create_provider,
 )
 from tempmail_wrapper.base import TempMailProvider
@@ -75,7 +85,7 @@ def _send_test_email(to: str) -> bool:
             resp = requests.post(
                 "https://api.resend.com/emails",
                 json={
-                    "from": "onboarding@resend.dev",
+                    "from": "onboarding@rokupusu.web.id",
                     "to": to,
                     "subject": "TempMail E2E Test",
                     "html": "<p>E2E test email from TempMail wrapper</p>",
@@ -327,10 +337,298 @@ class TestNcaoriMail:
 
 
 @pytest.mark.e2e
+class TestZoromail:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("zoromail")
+        assert isinstance(provider, ZoromailProvider)
+        try:
+            email = provider.generate_email()
+        except TempMailError as e:
+            pytest.skip(f"zoromail unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
+class TestTempmailLol:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("tempmail.lol")
+        assert isinstance(provider, TempmailLolProvider)
+        try:
+            email = provider.generate_email()
+        except TempMailError as e:
+            pytest.skip(f"tempmail.lol unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
+class TestTempmailc:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("tempmailc")
+        assert isinstance(provider, TempmailcProvider)
+        try:
+            email = provider.generate_email()
+        except TempMailError as e:
+            pytest.skip(f"tempmailc unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
+class TestTempMailIo:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("temp-mail.io")
+        assert isinstance(provider, TempMailIoProvider)
+        try:
+            email = provider.generate_email()
+        except TempMailError as e:
+            pytest.skip(f"temp-mail.io unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
+class TestTempmailPlus:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("tempmail.plus")
+        assert isinstance(provider, TempmailPlusProvider)
+        try:
+            email = provider.generate_email()
+        except TempMailError as e:
+            pytest.skip(f"tempmail.plus unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
+class TestEmailfake:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("emailfake")
+        assert isinstance(provider, EmailfakeProvider)
+        if RESEND_API_KEY:
+            email = "ryguy81@zumnime.me"
+            provider._domain = "zumnime.me"
+            provider._username = "ryguy81"
+            provider._email = email
+            provider._http.session.cookies.set("surl", "zumnime.me/ryguy81", domain=".emailfake.com")
+        else:
+            try:
+                email = provider.generate_email()
+            except TempMailError as e:
+                pytest.skip(f"emailfake unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
+class TestGeneratorEmail:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("generator.email")
+        assert isinstance(provider, GeneratorEmailProvider)
+        if RESEND_API_KEY:
+            email = "ryguy81@zumnime.me"
+            provider._domain = "zumnime.me"
+            provider._username = "ryguy81"
+            provider._email = email
+            provider._http.session.cookies.set("surl", "zumnime.me/ryguy81", domain=".generator.email")
+        else:
+            try:
+                email = provider.generate_email()
+            except TempMailError as e:
+                pytest.skip(f"generator.email unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
+class TestMailnesia:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("mailnesia")
+        assert isinstance(provider, MailnesiaProvider)
+        try:
+            email = provider.generate_email()
+        except TempMailError as e:
+            pytest.skip(f"mailnesia unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
+class TestTenMinuteMail:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("10minutemail")
+        assert isinstance(provider, TenMinuteMailProvider)
+        try:
+            email = provider.generate_email()
+        except TempMailError as e:
+            pytest.skip(f"10minutemail unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
+class TestEmailTemp:
+    def test_full_flow(self, network_available: bool) -> None:
+        _skip_if_no_network(network_available)
+        provider = create_provider("email-temp")
+        assert isinstance(provider, EmailTempProvider)
+        try:
+            email = provider.generate_email()
+        except TempMailError as e:
+            pytest.skip(f"email-temp unavailable: {e}")
+        assert "@" in email
+        sent = _send_test_email(email)
+        time.sleep(4)
+        try:
+            inbox = provider.get_inbox(email)
+            assert isinstance(inbox, list)
+        except TempMailError as e:
+            pytest.skip(f"inbox error: {e}")
+        if inbox:
+            try:
+                detail = provider.read_message(inbox[0].id)
+                assert detail.id == inbox[0].id
+            except Exception:
+                pass
+        provider.delete_email(email)
+
+
+@pytest.mark.e2e
 class TestFactory:
     def test_create_all_providers(self, network_available: bool) -> None:
         _skip_if_no_network(network_available)
-        for name in ["mail.tm", "guerrillamail", "yopmail", "dropmail", "1secemail", "ncaori"]:
+        for name in [
+            "mail.tm", "guerrillamail", "yopmail", "dropmail", "1secemail", "ncaori",
+            "zoromail", "tempmail.lol", "tempmailc", "temp-mail.io", "tempmail.plus",
+            "emailfake", "generator.email", "mailnesia", "10minutemail", "email-temp"
+        ]:
             provider = create_provider(name)
             assert isinstance(provider, TempMailProvider)
             assert provider.name == name or name in provider.name

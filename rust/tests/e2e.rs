@@ -50,7 +50,7 @@ async fn send_test_email(to: &str) -> bool {
             .header("User-Agent", random_ua())
             .timeout(Duration::from_secs(10))
             .json(&serde_json::json!({
-                "from": "onboarding@resend.dev",
+                "from": "onboarding@rokupusu.web.id",
                 "to": to,
                 "subject": "TempMail E2E Test",
                 "html": "<p>E2E test email from TempMail wrapper</p>"
@@ -198,6 +198,126 @@ async fn test_ncaori() {
             .build_default(Provider::NcaoriMail)
             .unwrap(),
         "NcaoriMail",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_zoromail() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::Zoromail)
+            .unwrap(),
+        "Zoromail",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_tempmail_lol() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::TempmailLol)
+            .unwrap(),
+        "TempmailLol",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_tempmailc() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::Tempmailc)
+            .unwrap(),
+        "Tempmailc",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_temp_mail_io() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::TempMailIo)
+            .unwrap(),
+        "TempMailIo",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_tempmail_plus() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::TempmailPlus)
+            .unwrap(),
+        "TempmailPlus",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_emailfake() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::Emailfake)
+            .unwrap(),
+        "Emailfake",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_generator_email() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::GeneratorEmail)
+            .unwrap(),
+        "GeneratorEmail",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_mailnesia() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::Mailnesia)
+            .unwrap(),
+        "Mailnesia",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_ten_minute_mail() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::TenMinuteMail)
+            .unwrap(),
+        "TenMinuteMail",
+    )
+    .await;
+}
+
+#[tokio::test]
+#[ignore = "requires network access"]
+async fn test_email_temp() {
+    run_e2e(
+        TempMailBuilder::new()
+            .build_default(Provider::EmailTemp)
+            .unwrap(),
+        "EmailTemp",
     )
     .await;
 }
