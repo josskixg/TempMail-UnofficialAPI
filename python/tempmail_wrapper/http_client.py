@@ -145,7 +145,7 @@ class HttpClient:
                 else:
                     resp = requests.request(method, url, **kwargs)
                 return resp
-            except (requests.ConnectionError, requests.Timeout, requests.ProxyError) as e:
+            except (requests.ConnectionError, requests.Timeout, requests.exceptions.ProxyError) as e:
                 last_err = e
                 if attempt < len(delays):
                     time.sleep(delays[attempt])

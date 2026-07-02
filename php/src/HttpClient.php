@@ -203,6 +203,9 @@ class HttpClient
                 }
             }
 
+            // ponytail: force HTTP/1.1 — some servers send malformed HTTP/2 headers
+            $opts[CURLOPT_HTTP_VERSION] = CURL_HTTP_VERSION_1_1;
+
             curl_setopt_array($ch, $opts);
 
             $response = curl_exec($ch);

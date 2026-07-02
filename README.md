@@ -5,7 +5,7 @@
 # 📬 TempMail Unofficial API — Multi-Language Wrappers
 
 <p align="center">
-  <strong>v1.0.0</strong> — Released 2026-06-30 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">Changelog</a> &nbsp;|&nbsp; <a href="./PLAN_v1.1.0.md">v1.1.0 Plan</a>
+  <strong>v1.1.0</strong> — Released 2026-07-01 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">Changelog</a> &nbsp;|&nbsp; <a href="./PLAN_v1.1.0.md">v1.1.0 Plan</a>
 </p>
 
 [🇬🇧 English](./README.md) | [🇮🇩 Bahasa Indonesia](./README.id.md) | [🇨🇳 中文](./README.cn.md)
@@ -28,6 +28,8 @@ Collection of **unofficial wrappers** for various Temporary Email services, writ
 
 ## 🌐 Supported TempMail Services
 
+### v1.0.0 Providers (5)
+
 | # | Service | Website | API Type | Auth | Difficulty |
 |---|---------|---------|----------|------|-----------|
 | 1 | Mail.tm | mail.tm | REST+JSON | Bearer Token | ✅ Easy |
@@ -36,6 +38,21 @@ Collection of **unofficial wrappers** for various Temporary Email services, writ
 | 4 | Dropmail | dropmail.me | GraphQL | Token (auto) | ✅ Easy |
 | 5 | 1secemail | 1secemail.com | REST | None | ✅ Easy |
 | 6 | Ncaori Mail+ | nca.my.id | REST+JSON | None | ✅ Easy |
+
+### v1.1.0 Providers (10)
+
+| # | Service | Website | API Type | Auth | Difficulty |
+|---|---------|---------|----------|------|-----------|
+| 6 | emailfake | emailfake.com | HTML Scraping | surl Cookie | ⚡ Medium |
+| 7 | generator.email | generator.email | HTML Scraping | surl Cookie | ⚡ Medium |
+| 8 | mail-temp.com | mail-temp.com | HTML Scraping | surl Cookie | ⚡ Medium |
+| 9 | zoromail | zoromail.com | REST+JSON | None | ✅ Easy |
+| 10 | tempmail.lol | tempmail.lol | REST+JSON | Token | ✅ Easy |
+| 11 | tempmailc | tempmailc.com | REST+JSON | None | ✅ Easy |
+| 12 | temp-mail.io | temp-mail.io | REST+JSON | Bearer Token | ⚡ Medium |
+| 13 | tempmail.plus | tempmail.plus | REST+JSON | None | ✅ Easy |
+| 14 | mailnesia | mailnesia.com | HTML Scraping | None | ❌ Blocked (403) |
+| 15 | 10minutemail | 10minutemail.com | REST+JSON | Cookie Session | ✅ Easy |
 
 ## 📁 Project Structure
 

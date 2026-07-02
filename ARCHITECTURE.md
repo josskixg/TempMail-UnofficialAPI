@@ -88,9 +88,9 @@ Providers are categorized by how they communicate with the upstream service:
 
 | Method | Providers | Notes |
 |--------|-----------|-------|
-| **REST API** | Mail.tm, GuerrillaMail | Standard HTTP GET/POST to JSON endpoints. |
+| **REST API** | Mail.tm, GuerrillaMail, zoromail, tempmail.lol, tempmailc, temp-mail.io, tempmail.plus, 10minutemail | Standard HTTP GET/POST to JSON endpoints. |
 | **GraphQL** | Dropmail.me | Queries and mutations over a GraphQL endpoint. |
-| **HTML Scraping** | YOPmail | Parse HTML pages with BeautifulSoup (Python) or equivalent DOM parser. |
+| **HTML Scraping** | YOPmail, emailfake, generator.email, mail-temp.com, mailnesia | Parse HTML pages with BeautifulSoup (Python) or equivalent DOM parser. |
 
 Each provider handles its own:
 

@@ -1,5 +1,48 @@
 # Release Notes
 
+## v1.1.0
+
+**Release date:** 2026-07-01
+
+## Summary
+
+Expanded provider support from 5 to 15 across all 7 languages. Added 10 new temp mail providers with diverse backend types (REST APIs, HTML scraping with cookie sessions). 9/10 new providers fully operational.
+
+## What's New
+
+- **10 new providers**: emailfake.com, generator.email, mail-temp.com, zoromail.com, tempmail.lol, tempmailc.com, temp-mail.io, tempmail.plus, mailnesia.com, 10minutemail.com
+- **Total providers: 15** (5 from v1.0.0 + 10 new)
+- **Full E2E test coverage** for all new providers in all 7 languages
+- **Resend API integration** for test email delivery (verified domain: rokupusu.web.id)
+
+## Provider Breakdown
+
+| Provider | Backend Type | Auth Method | Status |
+|----------|-------------|-------------|--------|
+| emailfake | HTML Scraping | surl cookie | ✅ Operational |
+| generator.email | HTML Scraping | surl cookie | ✅ Operational |
+| mail-temp.com | HTML Scraping | surl cookie | ✅ Operational |
+| zoromail | REST API | None | ✅ Operational |
+| tempmail.lol | REST API | Token | ✅ Operational |
+| tempmailc | REST API | None | ✅ Operational |
+| temp-mail.io | REST API | Bearer Token | ✅ Operational |
+| tempmail.plus | REST API | None | ✅ Operational |
+| mailnesia | HTML Scraping | None | ❌ Blocked (403) |
+| 10minutemail | REST API | Cookie Session | ✅ Operational |
+
+## Known Issues
+
+- **mailnesia.com**: Returns 403 Forbidden on `/mailbox/{username}` endpoint. Homepage accessible (200 OK) but mailbox endpoint blocked by Cloudflare. Session cookies do not bypass the restriction.
+
+## Technical Details
+
+- **HTML scraping providers** (emailfake, generator.email, mail-temp.com) use `surl={domain}/{username}` cookie for session management
+- **REST API providers** use various auth methods: none, token-based, Bearer token, or cookie session
+- **Inbox URL patterns** vary by provider: `/channel{1-9}/`, `/{email}`, `/temp-mail-box/`, or REST endpoints
+- All providers implement the same interface: `generate_email`, `get_inbox`, `read_message`, `delete_email`, `wait_for_email`
+
+---
+
 ## v1.0.0
 
 **Release date:** 2026-06-27 (updated 2026-06-30)

@@ -18,7 +18,9 @@ type TempMailProvider interface {
 }
 
 // NewProvider creates a TempMailProvider by name.
-// Supported names: "mailtm", "guerrillamail", "yopmail", "dropmail".
+// Supported names: "mailtm", "guerrillamail", "yopmail", "dropmail", "1secemail",
+// "zoromail", "tempmail.lol", "tempmailc", "temp-mail.io", "tempmail.plus",
+// "emailfake", "generator.email", "mailnesia", "10minutemail", "email-temp".
 // The config map accepts provider-specific keys such as "apiKey" or "token",
 // plus anti-429 options:
 //   - "proxies": comma-separated list of proxy URLs (e.g. "http://proxy1:8080,http://proxy2:8080")
@@ -40,6 +42,26 @@ func NewProvider(name string, config map[string]string) (TempMailProvider, error
 		return providers.NewOneSecEmail(config), nil
 	case "ncaori":
 		return providers.NewNcaoriMail(config), nil
+	case "zoromail":
+		return providers.NewZoromail(config), nil
+	case "tempmail.lol":
+		return providers.NewTempmailLol(config), nil
+	case "tempmailc":
+		return providers.NewTempmailc(config), nil
+	case "temp-mail.io":
+		return providers.NewTempMailIo(config), nil
+	case "tempmail.plus":
+		return providers.NewTempmailPlus(config), nil
+	case "emailfake":
+		return providers.NewEmailfake(config), nil
+	case "generator.email":
+		return providers.NewGeneratorEmail(config), nil
+	case "mailnesia":
+		return providers.NewMailnesia(config), nil
+	case "10minutemail":
+		return providers.NewTenMinuteMail(config), nil
+	case "email-temp":
+		return providers.NewEmailTemp(config), nil
 	default:
 		return nil, fmt.Errorf("unknown provider: %s", name)
 	}

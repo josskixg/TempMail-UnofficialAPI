@@ -4,6 +4,16 @@ pub mod mail_tm;
 pub mod yopmail;
 pub mod one_sec_email;
 pub mod ncaori_mail;
+pub mod zoromail;
+pub mod tempmail_lol;
+pub mod tempmailc;
+pub mod temp_mail_io;
+pub mod tempmail_plus;
+pub mod emailfake;
+pub mod generator_email;
+pub mod mailnesia;
+pub mod ten_minute_mail;
+pub mod email_temp;
 
 use std::time::Duration;
 

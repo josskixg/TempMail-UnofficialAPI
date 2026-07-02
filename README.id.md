@@ -5,7 +5,7 @@
 # 📬 TempMail Unofficial API — Multi-Language Wrappers
 
 <p align="center">
-  <strong>v1.0.0</strong> — Rilis 2026-06-30 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">Catatan Rilis</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">Changelog</a> &nbsp;|&nbsp; <a href="./PLAN_v1.1.0.md">Rencana v1.1.0</a>
+  <strong>v1.1.0</strong> — Rilis 2026-07-01 &nbsp;|&nbsp; <a href="./RELEASE_NOTES.md">Catatan Rilis</a> &nbsp;|&nbsp; <a href="./CHANGELOG.md">Changelog</a> &nbsp;|&nbsp; <a href="./PLAN_v1.1.0.md">Rencana v1.1.0</a>
 </p>
 
 [🇬🇧 English](./README.md) | [🇮🇩 Bahasa Indonesia](./README.id.md) | [🇨🇳 中文](./README.cn.md)

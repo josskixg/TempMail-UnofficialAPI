@@ -5,10 +5,10 @@
 # 📦 Rust — TempMail Unofficial Wrappers
 
 <p align="center">
-  <strong>v1.0.0</strong> — Released 2026-06-30 &nbsp;|&nbsp; <a href="../RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="../CHANGELOG.md">Changelog</a>
+  <strong>v1.1.0</strong> — Released 2026-07-01 &nbsp;|&nbsp; <a href="../RELEASE_NOTES.md">Release Notes</a> &nbsp;|&nbsp; <a href="../CHANGELOG.md">Changelog</a>
 </p>
 
-> Rust crate for 5 temporary email services. Zero API keys. Async with `tokio` + `reqwest`.
+> Rust crate for 15 temporary email services. Zero API keys. Async with `tokio` + `reqwest`.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-tempmail-unofficial = "1.0.0"
+tempmail-unofficial = "1.1.0"
 ```
 
 ## Environment Setup
@@ -111,12 +111,30 @@ let dropmail = Dropmail::new(client, Some(config));
 
 ## Supported Providers
 
+### v1.0.0 Providers (5)
+
 | Provider | Factory Name | Requires API Key | Notes |
 |----------|:---:|:---:|:---:|
 | Mail.tm | `mail.tm` | No | Account-based |
 | GuerrillaMail | `guerrillamail` | No | Session cookies |
 | YOPmail | `yopmail` | No | HTML scraping |
 | Dropmail.me | `dropmail` | No | GraphQL |
+| 1secemail | `1secemail` | No | REST API |
+
+### v1.1.0 Providers (10)
+
+| Provider | Factory Name | Requires API Key | Notes |
+|----------|:---:|:---:|:---:|
+| emailfake | `emailfake` | No | HTML scraping, surl cookie |
+| generator.email | `generator.email` | No | HTML scraping, surl cookie |
+| mail-temp.com | `email-temp` | No | HTML scraping, surl cookie |
+| zoromail | `zoromail` | No | REST API |
+| tempmail.lol | `tempmail.lol` | No | REST API, token-based |
+| tempmailc | `tempmailc` | No | REST API |
+| temp-mail.io | `temp-mail.io` | No | REST API, Bearer token |
+| tempmail.plus | `tempmail.plus` | No | REST API, email query |
+| mailnesia | `mailnesia` | No | HTML scraping (blocked by 403) |
+| 10minutemail | `10minutemail` | No | REST API, cookie session |
 
 ## API Reference
 
